@@ -37,7 +37,7 @@ social:
   name: Dakshesh Kololgi
   email: kololgi.dakshesh@gmail.com
   email: dakshesh.kololgi.23@ucl.ac.uk # change to your email address
-  
+
   links:
     # The first element serves as the copyright owner's link
     - https://jdpkololgi.github.io
@@ -108,7 +108,7 @@ avatar: assets/img/chillportrait.png
 social_preview_image: # string, local or CORS resources
 
 # boolean type, the global switch for TOC in posts.
-toc: true
+toc: false
 
 comments:
   # Global switch for the post-comment system. Keeping it empty means disabled.

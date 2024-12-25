@@ -6,6 +6,9 @@ categories: [About me]
 tags: [About me, CV, Intro] 
 ---
 
+![About me](/assets/img/lss.png)
+
+
 Hi, I'm Dakshesh! I'm a PhD researcher at the UCL [Data Intensive Science CDT](https://www.ucl.ac.uk/data-intensive-science-industry/) using graph-based machine learning methods to study how galaxy properties are influenced by their large-scale structure environments. My research combined deep learning, statistics, and astrophysics for a comprehensive understanding of galaxy evolution.
 
 # CV
