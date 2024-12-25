@@ -2,13 +2,14 @@
 # the default layout is 'page'
 icon: fas fa-info-circle
 order: 1
+categories: [About me]
+tags: [About me, CV, Intro] 
 ---
 
 Hi, I'm Dakshesh! I'm a PhD researcher at the UCL [Data Intensive Science CDT](https://www.ucl.ac.uk/data-intensive-science-industry/) using graph-based machine learning methods to study how galaxy properties are influenced by their large-scale structure environments. My research combined deep learning, statistics, and astrophysics for a comprehensive understanding of galaxy evolution.
 
 # CV
 
-<embed src="/assets/pdf/cv.pdf" width="900" height="2000" type="application/pdf">
+Here's a preview of my latest CV.
 
-> Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
-{: .prompt-tip }
+<embed src="/assets/pdf/cv.pdf" width="650" height="850" type="application/pdf">
