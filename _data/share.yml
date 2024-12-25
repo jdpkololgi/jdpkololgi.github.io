@@ -4,21 +4,21 @@
 platforms:
   - type: Twitter
     icon: "fa-brands fa-square-x-twitter"
-    link: "https://twitter.com/intent/tweet?text=TITLE&url=URL"
+    link: "https://x.com/AstroDak99"
 
-  - type: Facebook
-    icon: "fab fa-facebook-square"
-    link: "https://www.facebook.com/sharer/sharer.php?title=TITLE&u=URL"
+  # - type: Facebook
+  #   icon: "fab fa-facebook-square"
+  #   link: "https://www.facebook.com/sharer/sharer.php?title=TITLE&u=URL"
 
-  - type: Telegram
-    icon: "fab fa-telegram"
-    link: "https://t.me/share/url?url=URL&text=TITLE"
+  # - type: Telegram
+  #   icon: "fab fa-telegram"
+  #   link: "https://t.me/share/url?url=URL&text=TITLE"
 
   # Uncomment below if you need to.
   #
-  # - type: Linkedin
-  #   icon: "fab fa-linkedin"
-  #   link: "https://www.linkedin.com/sharing/share-offsite/?url=URL"
+  - type: Linkedin
+    icon: "fab fa-linkedin"
+    link: "https://www.linkedin.com/in/dakshesh-kololgi-0305649b/"
   #
   # - type: Weibo
   #   icon: "fab fa-weibo"
@@ -37,9 +37,9 @@ platforms:
   #     - label: photog.social
   #       link: "https://photog.social/"
   #
-  # - type: Bluesky
-  #   icon: "fa-brands fa-bluesky"
-  #   link: "https://bsky.app/intent/compose?text=TITLE%20URL"
+  - type: Bluesky
+    icon: "fa-brands fa-bluesky"
+    link: "https://bsky.app/profile/astrodak.bsky.social"
   #
   # - type: Reddit
   #   icon: "fa-brands fa-square-reddit"
