@@ -8,7 +8,7 @@ Hi, I'm Dakshesh! I'm a PhD researcher at the UCL [Data Intensive Science CDT](h
 
 # CV
 
-<embed src="/assets/pdf/cv.pdf" width="1000" height="2000" type="application/pdf">
+<embed src="/assets/pdf/cv.pdf" width="900" height="2000" type="application/pdf">
 
 > Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
 {: .prompt-tip }
