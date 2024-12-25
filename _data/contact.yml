@@ -9,10 +9,12 @@
 - type: email
   icon: "fas fa-envelope"
   noblank: true # open link in current tab
+  link: "mailto:dakshesh.kololgi.23@ucl.ac.uk"
 
 - type: email
   icon: "fas fa-envelope"
   noblank: true # open link in current tab
+  link: "mailto:kololgi.dakshesh@gmal.com"
 
 # - type: rss
 #   icon: "fas fa-rss"
