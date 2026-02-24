@@ -67,11 +67,11 @@
     let points = [];
     let mouse = null;
     let rafId = null;
+    let mouseIdleTimer = null;
 
     function resize() {
-      const rect = canvas.getBoundingClientRect();
-      width = Math.max(rect.width, 280);
-      height = Math.max(rect.height, 260);
+      width = Math.max(window.innerWidth, 280);
+      height = Math.max(window.innerHeight, 260);
       canvas.width = Math.floor(width * dpr);
       canvas.height = Math.floor(height * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -135,19 +135,33 @@
     }
 
     function onMouseMove(event) {
-      const rect = canvas.getBoundingClientRect();
       mouse = {
-        x: event.clientX - rect.left,
-        y: event.clientY - rect.top
+        x: event.clientX,
+        y: event.clientY
       };
+
+      if (mouseIdleTimer) {
+        window.clearTimeout(mouseIdleTimer);
+      }
+
+      // Keep pointer-links visible only while cursor is actively moving.
+      mouseIdleTimer = window.setTimeout(function () {
+        mouse = null;
+      }, 140);
     }
 
     function onMouseLeave() {
       mouse = null;
+      if (mouseIdleTimer) {
+        window.clearTimeout(mouseIdleTimer);
+        mouseIdleTimer = null;
+      }
     }
 
-    canvas.addEventListener("mousemove", onMouseMove);
-    canvas.addEventListener("mouseleave", onMouseLeave);
+    window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("mouseleave", onMouseLeave);
+    window.addEventListener("scroll", onMouseLeave, { passive: true });
+    window.addEventListener("blur", onMouseLeave);
     window.addEventListener("resize", resize);
 
     resize();
@@ -156,8 +170,14 @@
     return {
       destroy() {
         if (rafId) window.cancelAnimationFrame(rafId);
-        canvas.removeEventListener("mousemove", onMouseMove);
-        canvas.removeEventListener("mouseleave", onMouseLeave);
+        if (mouseIdleTimer) {
+          window.clearTimeout(mouseIdleTimer);
+          mouseIdleTimer = null;
+        }
+        window.removeEventListener("mousemove", onMouseMove);
+        window.removeEventListener("mouseleave", onMouseLeave);
+        window.removeEventListener("scroll", onMouseLeave);
+        window.removeEventListener("blur", onMouseLeave);
         window.removeEventListener("resize", resize);
       }
     };
@@ -188,6 +208,7 @@
     if (!host) return;
     const canvas = host.querySelector("canvas");
     if (!canvas) return;
+    document.body.classList.add("cosmic-homepage");
 
     let runningSystem = null;
 
@@ -202,6 +223,67 @@
 
     if (!runningSystem) {
       mountPreset(host.getAttribute("data-default-preset") || "cosmicWeb");
+    }
+
+    const searchTrigger = document.querySelector("#search-trigger");
+    const searchInput = document.querySelector("#search-input");
+
+    document.addEventListener("keydown", function (event) {
+      const isK = event.key && event.key.toLowerCase() === "k";
+      if (!isK) return;
+      if (!(event.metaKey || event.ctrlKey)) return;
+
+      const target = event.target;
+      const isTypingTarget =
+        target &&
+        (target.tagName === "INPUT" ||
+          target.tagName === "TEXTAREA" ||
+          target.tagName === "SELECT" ||
+          target.isContentEditable);
+
+      if (isTypingTarget) return;
+
+      event.preventDefault();
+
+      if (searchTrigger) {
+        searchTrigger.click();
+      }
+
+      if (searchInput) {
+        window.setTimeout(function () {
+          searchInput.focus();
+          searchInput.select();
+        }, 0);
+      }
+    });
+
+    const launcherToggle = document.querySelector("[data-cosmic-sidebar-toggle]");
+    const sidebar = document.querySelector("#sidebar");
+
+    if (launcherToggle && sidebar) {
+      launcherToggle.setAttribute("aria-controls", "sidebar");
+      launcherToggle.setAttribute("aria-expanded", "false");
+
+      launcherToggle.addEventListener("click", function () {
+        const nextOpen = !document.body.classList.contains("cosmic-sidebar-open");
+        document.body.classList.toggle("cosmic-sidebar-open", nextOpen);
+        launcherToggle.setAttribute("aria-expanded", String(nextOpen));
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          document.body.classList.remove("cosmic-sidebar-open");
+          launcherToggle.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      document.addEventListener("click", function (event) {
+        if (!document.body.classList.contains("cosmic-sidebar-open")) return;
+        if (sidebar.contains(event.target)) return;
+        if (launcherToggle.contains(event.target)) return;
+        document.body.classList.remove("cosmic-sidebar-open");
+        launcherToggle.setAttribute("aria-expanded", "false");
+      });
     }
   }
 
