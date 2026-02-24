@@ -49,6 +49,7 @@
 }
 
 body.cosmic-homepage {
+  font-family: "Eurostile", "Square 721 BT", "Square 721", "Microgramma D Extended", "Source Sans Pro", "Lato", sans-serif;
   background:
     radial-gradient(circle at 15% 8%, rgba(55, 95, 200, 0.18), transparent 30%),
     radial-gradient(circle at 80% 12%, rgba(68, 59, 190, 0.2), transparent 26%),
