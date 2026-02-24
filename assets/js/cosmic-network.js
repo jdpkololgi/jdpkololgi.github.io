@@ -158,8 +158,15 @@
       }
     }
 
+    function onDocumentMouseOut(event) {
+      // When relatedTarget is null, the pointer left the browser viewport.
+      if (!event.relatedTarget) {
+        onMouseLeave();
+      }
+    }
+
     window.addEventListener("mousemove", onMouseMove);
-    window.addEventListener("mouseleave", onMouseLeave);
+    document.addEventListener("mouseout", onDocumentMouseOut);
     window.addEventListener("scroll", onMouseLeave, { passive: true });
     window.addEventListener("blur", onMouseLeave);
     window.addEventListener("resize", resize);
@@ -175,7 +182,7 @@
           mouseIdleTimer = null;
         }
         window.removeEventListener("mousemove", onMouseMove);
-        window.removeEventListener("mouseleave", onMouseLeave);
+        document.removeEventListener("mouseout", onDocumentMouseOut);
         window.removeEventListener("scroll", onMouseLeave);
         window.removeEventListener("blur", onMouseLeave);
         window.removeEventListener("resize", resize);
