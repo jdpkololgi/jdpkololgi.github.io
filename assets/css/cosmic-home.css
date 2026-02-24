@@ -253,7 +253,7 @@ body.cosmic-homepage main h2 {
     max-height: 46px !important;
     min-width: 46px;
     min-height: 46px;
-    flex-basis: 46px;
+    flex: 0 0 46px;
   }
 
   .cosmic-home {
