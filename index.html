@@ -2,3 +2,66 @@
 layout: home
 # Index page
 ---
+
+<link rel="stylesheet" href="{{ '/assets/css/cosmic-home.css' | relative_url }}">
+<script src="{{ '/assets/js/cosmic-network.js' | relative_url }}" defer></script>
+
+<section class="cosmic-home" data-cosmic-home data-default-preset="cosmicWeb">
+  <canvas class="cosmic-home__canvas" aria-hidden="true"></canvas>
+  <div class="cosmic-home__content">
+    <p class="cosmic-home__eyebrow">Astrophysics x Graph Machine Learning</p>
+    <h1>Dakshesh Kololgi</h1>
+    <p class="cosmic-home__subtitle">
+      PhD researcher at UCL building graph-based machine learning methods to connect galaxies with their dark matter cosmic web environments.
+    </p>
+    <div class="cosmic-home__actions">
+      <a class="cosmic-btn cosmic-btn--primary" href="https://arxiv.org/abs/2512.05909" target="_blank" rel="noopener noreferrer">Read Latest Paper</a>
+      <a class="cosmic-btn" href="{{ '/About me/' | relative_url }}">Research Interests</a>
+      <a class="cosmic-btn" href="{{ '/publications/' | relative_url }}">Publications</a>
+      <a class="cosmic-btn" href="{{ '/assets/pdf/cv.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer">CV</a>
+    </div>
+    <div class="cosmic-home__config">
+      Particle preset
+      <select data-cosmic-preset aria-label="Choose particle background preset"></select>
+    </div>
+  </div>
+</section>
+
+<h2>Research Interests</h2>
+
+<div class="research-grid">
+  <article class="research-card">
+    <h3>Graph ML for Cosmic Structure</h3>
+    <p>Learning physically meaningful graph representations of galaxy environments using geometry-aware metrics.</p>
+  </article>
+  <article class="research-card">
+    <h3>Galaxy-Environment Connection</h3>
+    <p>Studying how galaxy properties evolve across voids, walls, filaments, and clusters in the cosmic web.</p>
+  </article>
+  <article class="research-card">
+    <h3>Simulation to Survey Transfer</h3>
+    <p>Bridging simulation-grounded models toward observational datasets including DESI-era analysis.</p>
+  </article>
+  <article class="research-card">
+    <h3>Interpretable Scientific AI</h3>
+    <p>Designing ML pipelines that remain transparent, testable, and anchored in astrophysical understanding.</p>
+  </article>
+</div>
+
+<h2>Latest Paper</h2>
+
+<section class="paper-highlight">
+  <h3>Learning the Cosmic Web: Graph-based Classification of Simulated Galaxies by their Dark Matter Environments</h3>
+  <p>
+    We introduce a three-stage simulation framework: T-Web environment labels, graph features from Delaunay triangulation,
+    and a graph attention network (GAT) classifier.
+  </p>
+  <ul>
+    <li>Task: classify each galaxy as void, wall, filament, or cluster from local structure.</li>
+    <li>Result: 85% accuracy for galaxies with stellar mass above 10^9 M_sun.</li>
+    <li>Impact: graph-based representations improve environment inference and support future DESI-focused studies.</li>
+  </ul>
+  <p>
+    <a class="cosmic-btn cosmic-btn--primary" href="https://arxiv.org/abs/2512.05909" target="_blank" rel="noopener noreferrer">View on arXiv</a>
+  </p>
+</section>
