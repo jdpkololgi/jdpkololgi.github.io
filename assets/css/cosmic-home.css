@@ -8,6 +8,7 @@
   align-items: center;
   gap: 0.5rem;
   width: 58px;
+  transition: opacity 0.18s ease, visibility 0.18s ease;
 }
 
 .cosmic-launcher__avatar {
@@ -24,16 +25,9 @@
   box-shadow: 0 0 1rem rgba(67, 106, 226, 0.3);
   line-height: 0;
   flex: 0 0 58px;
-}
-
-.cosmic-launcher__avatar img {
-  display: block !important;
-  width: 100% !important;
-  height: 100% !important;
-  max-width: none !important;
-  max-height: none !important;
-  object-fit: cover !important;
-  border-radius: inherit;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .cosmic-launcher__toggle {
@@ -89,7 +83,9 @@ body.cosmic-homepage.cosmic-sidebar-open #sidebar {
 }
 
 body.cosmic-homepage.cosmic-sidebar-open .cosmic-sidebar-launcher {
-  left: 17rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .cosmic-home {
